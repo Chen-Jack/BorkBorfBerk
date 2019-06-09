@@ -21,9 +21,10 @@ export default {
 
 function pickRandomDog () {
     const DOGS_FILES = ['a.png', 'b.jpeg', 'c.png', 'd.jpg']
-    const randomDogFileName = DOGS_FILES[Math.floor(Math.random() * DOGS_FILES.length)]
+    // const randomDogFileName = DOGS_FILES[Math.floor(Math.random() * DOGS_FILES.length)]
     const root = process.env.BASE_URL
-    return root + randomDogFileName
+    // return root + randomDogFileName
+    return root + DOGS_FILES[0]
 }
 </script>
 
@@ -34,6 +35,9 @@ function pickRandomDog () {
         max-width: 250px;
         max-height: 250px;
         box-sizing: 1px solid black;
+        outline: none;
+        border: none;
+        padding: 20px;
     }
 
     .dog-btn:active, .dog-btn:focus {

@@ -41,3 +41,19 @@ function selectRandomInflection() {
     return inflections[Math.floor(Math.random() * inflections.length)]
 }
 </script>
+
+
+<style scoped>
+    h1, h6 {
+        margin-top: 20px;
+    }
+
+    h6 {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-style: italic;
+    }
+</style>
