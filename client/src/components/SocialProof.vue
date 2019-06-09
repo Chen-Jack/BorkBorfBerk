@@ -2,14 +2,15 @@
     <div class='social-proof'>
         <h1> Live Borks: {{userTotal}} </h1>
         <h3> Lifetime Clicks: {{lifeTimeTotal}} </h3>
-        <div> Connected? {{socketConnected}} </div>
+        <div v-if="connected" class='connected'> Connected </div>
+        <div v-else class='disconnected'> Disconnected </div>
     </div>
 </template>
 
 <script>
 export default {
     name: 'SocialProof',
-    props: ['userTotal', 'lifeTimeTotal', 'socketConnected'],
+    props: ['userTotal', 'lifeTimeTotal', 'connected'],
 }
 </script>
 
@@ -24,6 +25,13 @@ export default {
         flex-direction: column;
         min-width: 60px;
         padding: 40px;
+    }
+
+    .connected {
+        color: green
+    }
+    .disconnected {
+        color: red
     }
 
 </style>

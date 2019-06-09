@@ -2,6 +2,12 @@ const express = require('express')
 const app = express()
 const server = app.listen(3000, () => console.log('running on port 3000'))
 
+app.use(express.static('./client/dist'))
+
+app.get('*', (req, res) => {
+    res.sendFile('./client/dist/index.html')
+})
+
 const io = require('socket.io')(server)
 var numPlayers = 0
 var numClicks = 0
