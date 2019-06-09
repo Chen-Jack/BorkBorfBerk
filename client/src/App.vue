@@ -28,6 +28,20 @@ function dogPoked () {
   /* eslint-disable */
   console.log('clicked');
   this.$refs.bubble.speak()
+  playAudioFile()
+}
+
+function playAudioFile () {
+  const url = getRandomAudioFilePath()
+  console.log('URL', url);
+  new Audio(url).play()
+}
+
+function getRandomAudioFilePath () {
+  const root = process.env.BASE_URL
+  const possibleFiles = ['bark1.wav', 'bark2.wav', 'bark3.wav', 'bark4.wav', 'bark5.wav']
+  const file = possibleFiles[Math.floor(Math.random() * possibleFiles.length)]
+  return root + file
 }
 </script>
 
