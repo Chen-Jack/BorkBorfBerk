@@ -1,18 +1,24 @@
 <template>
-    <div class='social-proof'>
-        <h1> Live Borks {{userTotal}} </h1>
-        <h3> Lifetime Clicks {{lifetimeTotal}} </h3>
+    <div v-if='linked' class='social-proof'>
+        <h1> Live Borks: {{userTotal}} </h1>
+        <h3> Lifetime Clicks: {{lifetimeTotal}} </h3>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'SocialProof',
     data: function () {
         return {
+            linked: false,
             userTotal: 0,
             lifetimeTotal: 0
         }
+    },
+    created: function () {
+        // create socket io connection and
+        // bind data from connection to state
     }
 }
 </script>
