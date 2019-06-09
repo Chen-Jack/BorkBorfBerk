@@ -34,18 +34,18 @@ export default {
     }
   },
   created: function () {
-    this.socket = io('serverlocation')
+    this.socket = io('localhost:3000')
 
     this.socket.on('connect', () => {
       this.socketInit = true
       this.socketConnected = true
     });
 
-    this.socket.on('/new player count', count => {
+    this.socket.on('new-player', count => {
       this.totalConnections = count
     })
 
-    this.socket.on('/new click count', count => {
+    this.socket.on('update-clicks', count => {
       this.totalClicks = count
     })
 
@@ -54,7 +54,7 @@ export default {
     })
 
     this.socket.on('bork', () => {
-
+      playAudioFile()
     })
   }
 }
@@ -64,7 +64,7 @@ function dogPoked () {
   console.log('clicked');
   this.$refs.bubble.speak()
   playAudioFile()
-  this.socket.emit('boardcast-bork')
+  this.socket.emit('broadcast-bork')
 }
 
 function playAudioFile () {
