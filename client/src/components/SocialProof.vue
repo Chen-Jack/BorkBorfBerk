@@ -1,0 +1,33 @@
+<template>
+    <div class='social-proof'>
+        <h1> Live Borks {{userTotal}} </h1>
+        <h3> Lifetime Clicks {{lifetimeTotal}} </h3>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'SocialProof',
+    data: function () {
+        return {
+            userTotal: 0,
+            lifetimeTotal: 0
+        }
+    }
+}
+</script>
+
+<style scoped>
+    .social-proof {
+        display: flex;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-width: 60px;
+        padding: 40px;
+    }
+
+</style>
